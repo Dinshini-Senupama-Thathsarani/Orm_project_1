@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="580.0" prefWidth="700.0" style="-fx-background-color: #F1ABB9;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.orm.project01.controller.TherapySessionController">
+
+    <VBox spacing="12" style="-fx-background-color: #F1ABB9;" AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="10">
+
+        <Label style="-fx-text-fill: #e94560; -fx-font-size: 18px; -fx-font-weight: bold;" text="Therapy Session Management" />
+
+        <GridPane hgap="10" style="-fx-background-color: #F1ABB9; -fx-padding: 15; -fx-background-radius: 8;" vgap="8">
+            <columnConstraints>
+                <ColumnConstraints minWidth="110" prefWidth="110" />
+                <ColumnConstraints hgrow="ALWAYS" />
+                <ColumnConstraints minWidth="110" prefWidth="110" />
+                <ColumnConstraints hgrow="ALWAYS" />
+            </columnConstraints>
+
+            <Label style="-fx-text-fill: black;" text="Session ID:" />
+            <TextField fx:id="txtSessionId" editable="false" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+            <Label style="-fx-text-fill: black;" text="Date:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            <TextField fx:id="txtSessionDate" promptText="YYYY-MM-DD" style="-fx-background-color: white;" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+
+            <Label style="-fx-text-fill: black;" text="Time Slot:" GridPane.rowIndex="1" />
+            <TextField fx:id="txtSessionTime" promptText="e.g. 09:00 - 10:00" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+            <Label style="-fx-text-fill: black;" text="Status:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <ComboBox fx:id="cmbStatus" prefWidth="160" style="-fx-background-color: white;" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+
+            <Label style="-fx-text-fill: black;" text="Patient:" GridPane.rowIndex="2" />
+            <ComboBox fx:id="cmbPatient" prefWidth="200" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+            <Label style="-fx-text-fill: black;" text="Therapist:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <ComboBox fx:id="cmbTherapist" prefWidth="200" style="-fx-background-color: white;" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+
+            <Label style="-fx-text-fill: black;" text="Programme:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+            <ComboBox fx:id="cmbProgramme" prefWidth="200" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+            <Label style="-fx-text-fill: black;" text="Notes:" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <TextArea fx:id="txtNotes" prefHeight="60" promptText="Session notes..." style="-fx-background-color: #0f3460; -fx-text-fill: white;" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+        </GridPane>
+
+        <HBox alignment="CENTER_LEFT" spacing="10">
+            <Button onAction="#onBook" prefWidth="90" style="-fx-background-color: #DE5D83;" text="Book" />
+            <Button onAction="#onUpdate" prefWidth="90" style="-fx-background-color: #DE5D83;" text="Update" />
+            <Button onAction="#onCancel" prefWidth="120" style="-fx-background-color: #DE5D83;" text="Cancel Session" />
+            <Button onAction="#onClear" prefWidth="90" style="-fx-background-color: #DE5D83;" text="Clear" />
+            <HBox HBox.hgrow="ALWAYS" />
+            <Label style="-fx-text-fill: #a8dadc;" text="Filter:" />
+            <ComboBox fx:id="cmbFilterStatus" prefWidth="130" style="-fx-background-color: #DE5D83;" />
+            <Button onAction="#onFilter" style="-fx-background-color: #e94560; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand;" text="Apply" />
+        </HBox>
+
+        <TableView fx:id="tblSessions" style="-fx-background-color: #FDDDE6;" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colId" prefWidth="70" text="ID" />
+                <TableColumn fx:id="colDate" prefWidth="90" text="Date" />
+                <TableColumn fx:id="colTime" prefWidth="110" text="Time" />
+                <TableColumn fx:id="colPatient" prefWidth="120" text="Patient" />
+                <TableColumn fx:id="colTherapist" prefWidth="120" text="Therapist" />
+                <TableColumn fx:id="colProgramme" prefWidth="130" text="Programme" />
+                <TableColumn fx:id="colStatus" prefWidth="100" text="Status" />
+            </columns>
+            <placeholder>
+                <Label style="-fx-text-fill: #666;" text="No sessions found." />
+            </placeholder>
+        </TableView>
+
+    </VBox>
+</AnchorPane>

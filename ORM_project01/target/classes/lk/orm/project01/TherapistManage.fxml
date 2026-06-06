@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="560.0" prefWidth="680.0" style="-fx-background-color: #F1ABB9;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.orm.project01.controller.TherapistController">
+
+    <VBox spacing="12" style="-fx-background-color: #F1ABB9;" AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="10">
+
+        <Label style="-fx-text-fill: #e94560; -fx-font-size: 18px; -fx-font-weight: bold;" text="Therapist Management" />
+
+        <GridPane hgap="10" style="-fx-background-color: #F1ABB9; -fx-padding: 15; -fx-background-radius: 8;" vgap="8">
+            <columnConstraints>
+                <ColumnConstraints minWidth="120" prefWidth="120" />
+                <ColumnConstraints hgrow="ALWAYS" />
+                <ColumnConstraints minWidth="120" prefWidth="120" />
+                <ColumnConstraints hgrow="ALWAYS" />
+            </columnConstraints>
+
+            <Label style="-fx-text-fill: black;" text="Therapist ID:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <TextField fx:id="txtTherapistId" editable="false" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+            <Label style="-fx-text-fill: black;" text="Full Name:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+            <TextField fx:id="txtName" promptText="Full name" style="-fx-background-color: white;" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+
+            <Label style="-fx-text-fill: black;" text="Specialization:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <TextField fx:id="txtSpecialization" promptText="e.g. CBT Specialist" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+            <Label style="-fx-text-fill: black;" text="Phone:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <TextField fx:id="txtPhone" promptText="07XXXXXXXX" style="-fx-background-color: white;" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+
+            <Label style="-fx-text-fill: black;" text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <TextField fx:id="txtEmail" promptText="email@example.com" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+            <Label style="-fx-text-fill: black;" text="Availability:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <ComboBox fx:id="cmbAvailability" prefWidth="180" style="-fx-background-color: white;" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+
+            <Label style="-fx-text-fill: black;" text="Programme:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+            <ComboBox fx:id="cmbProgramme" prefWidth="200" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3" />
+
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+        </GridPane>
+
+        <HBox spacing="10">
+            <Button onAction="#onSave" prefWidth="90" style="-fx-background-color: #DE5D83;" text="Save" />
+            <Button onAction="#onUpdate" prefWidth="90" style="-fx-background-color: #DE5D83;" text="Update" />
+            <Button onAction="#onDelete" prefWidth="90" style="-fx-background-color: #DE5D83;" text="Delete" />
+            <Button onAction="#onClear" prefWidth="90" style="-fx-background-color: #DE5D83;" text="Clear" />
+            <HBox HBox.hgrow="ALWAYS" />
+            <TextField fx:id="txtSearch" prefWidth="180" promptText="Search by name..." style="-fx-background-color: #DE5D83;" />
+            <Button onAction="#onSearch" style="-fx-background-color: #e94560; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand;" text="Search" />
+        </HBox>
+
+        <TableView fx:id="tblTherapists" style="-fx-background-color: #FDDDE6;" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colId" prefWidth="70" text="ID" />
+                <TableColumn fx:id="colName" prefWidth="150" text="Name" />
+                <TableColumn fx:id="colSpec" prefWidth="160" text="Specialization" />
+                <TableColumn fx:id="colPhone" prefWidth="110" text="Phone" />
+                <TableColumn fx:id="colEmail" prefWidth="150" text="Email" />
+                <TableColumn fx:id="colAvail" prefWidth="130" text="Availability" />
+            </columns>
+            <placeholder>
+                <Label style="-fx-text-fill: #666;" text="No therapists found." />
+            </placeholder>
+        </TableView>
+
+    </VBox>
+</AnchorPane>
